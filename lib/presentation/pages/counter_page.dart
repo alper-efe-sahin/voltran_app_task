@@ -11,32 +11,24 @@ class CounterPage extends GetView {
     final CounterController counterController = Get.put(CounterController());
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton.large(
+          onPressed: () {
+            counterController.increment();
+          },
+          child: const Icon(
+            Icons.plus_one,
+            size: 40,
+          )),
       appBar: AppBar(
         title: const Text('Voltran App Task'),
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Obx(
-              () => Text(
-                "Counter value is ${counterController.count}",
-                style: const TextStyle(fontSize: 25),
-              ),
-            ),
-            const SizedBox(height: 16),
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.blue),
-              ),
-              onPressed: () {
-                counterController.increment();
-              },
-              child: const Text('Increment', style: TextStyle(fontSize: 14, color: Colors.white)),
-            ),
-          ],
+        child: Obx(
+          () => Text(
+            "Counter value is ${counterController.count}",
+            style: const TextStyle(fontSize: 25),
+          ),
         ),
       ),
     );
