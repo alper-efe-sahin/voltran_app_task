@@ -7,8 +7,8 @@ class AppWidget extends GetView {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-    debugShowCheckedModeBanner: false,
+    return const GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       home: CounterPage(),
     );
   }
