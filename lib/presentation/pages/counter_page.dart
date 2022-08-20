@@ -24,17 +24,17 @@ class CounterPage extends GetView {
                 "Counter value is ${counterController.count}",
                 style: TextStyle(
                   fontSize: 25,
-                  color: counterController.changeColor ? Colors.red : Colors.blue,
+                  color: counterController.changeTextColor ? Colors.red : Colors.blue,
                 ),
               ),
             ),
             TextButton(
               onPressed: () {
                 counterController.tapToFab();
-                counterController.time();
+                counterController.recordTime();
               },
               onLongPress: () {
-                counterController.longPressAction();
+                counterController.longPressActionFromFAB();
               },
               child: const Text(
                 "+1",

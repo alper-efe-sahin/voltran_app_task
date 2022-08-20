@@ -1,19 +1,17 @@
 import 'dart:async';
-
 import 'package:get/get.dart';
 
 class CounterController extends GetxController {
   final count = 0.obs;
-  var countTime = 0;
   final RxList times = [].obs;
   var isTap = false;
-  var changeColor = false;
+  var changeTextColor = false;
 
   void tapToFab() {
     isTap = !isTap;
   }
 
-  void time() {
+  void recordTime() {
     Timer.periodic(
       const Duration(milliseconds: 1),
       (timer) {
@@ -27,15 +25,15 @@ class CounterController extends GetxController {
     );
   }
 
-  Future<void> longPressAction() async {
+  Future<void> longPressActionFromFAB() async {
     count.value = 0;
 
     for (var i = 0; i < times.length; i++) {
       count.value++;
-      changeColor = true;
+      changeTextColor = true;
       await Future.delayed(Duration(milliseconds: times[i]));
     }
     times.value = [];
-    changeColor = false;
+    changeTextColor = false;
   }
 }
