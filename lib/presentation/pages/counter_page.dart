@@ -14,6 +14,8 @@ class CounterPage extends GetView {
       floatingActionButton: FloatingActionButton.large(
           onPressed: () {
             counterController.increment();
+            counterController.time();
+            counterController.tapToFab();
           },
           child: const Icon(
             Icons.plus_one,
