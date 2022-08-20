@@ -1,4 +1,4 @@
-# voltran_app_task
+# flutter_voltran_app_task
 
 ## GIF from the application
 ![voltran](https://user-images.githubusercontent.com/67283777/185758835-77ecc1d0-52e5-4ab3-88b2-49b893e490d6.gif)
