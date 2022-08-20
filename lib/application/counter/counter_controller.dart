@@ -7,10 +7,7 @@ class CounterController extends GetxController {
   var countTime = 0;
   final RxList times = [].obs;
   var isTap = false;
-
-  void increment() {
-    count.value++;
-  }
+  var changeColor = false;
 
   void tapToFab() {
     isTap = !isTap;
@@ -18,7 +15,7 @@ class CounterController extends GetxController {
 
   void time() {
     Timer.periodic(
-      const Duration(),
+      const Duration(milliseconds: 1),
       (timer) {
         if (isTap) {
           timer.tick;
@@ -28,5 +25,17 @@ class CounterController extends GetxController {
         }
       },
     );
+  }
+
+  Future<void> longPressAction() async {
+    count.value = 0;
+
+    for (var i = 0; i < times.length; i++) {
+      count.value++;
+      changeColor = true;
+      await Future.delayed(Duration(milliseconds: times[i]));
+    }
+    times.value = [];
+    changeColor = false;
   }
 }
